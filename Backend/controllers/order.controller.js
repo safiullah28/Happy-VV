@@ -59,6 +59,8 @@ export const createPurchaseOrder = async (req, res) => {
       });
     }
     bank.balance -= amount;
+    bank.credit = amount;
+    await bank.save();
 
     res.status(201).json({
       message: `Order purchased`,

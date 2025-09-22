@@ -9,6 +9,11 @@ import agentRouter from "./routes/agent.route.js";
 import vendorRouter from "./routes/vendor.route.js";
 import bankRouter from "./routes/bank.route.js";
 import orderRouter from "./routes/order.route.js";
+import saleOrderRouter from "./routes/saleOrder.route.js";
+import productRouter from "./routes/product.route.js";
+import brandRouter from "./routes/brand.route.js";
+import customerRouter from "./routes/customer.route.js";
+
 const app = express();
 
 const PORT = process.env.PORT || 5009;
@@ -27,6 +32,10 @@ app.use("/api/agent", agentRouter);
 app.use("/api/vendor", vendorRouter);
 app.use("/api/bank", bankRouter);
 app.use("/api/order", orderRouter);
+app.use("/api/saleOrder", saleOrderRouter);
+app.use("/api/product", productRouter);
+app.use("/api/brand", brandRouter);
+app.use("/api/customer", customerRouter);
 
 connectDB().then(() => {
   app.listen(PORT, () => {
